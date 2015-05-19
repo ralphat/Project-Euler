@@ -4,22 +4,16 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-long long ms(long long n)
-{
-    long long i,k=1;
-    for(i=n;i>1;i--){
-        k*=i;
-    }
-    return k;
-}
 long long comb(long long n, long long m)
 {
     long long i,j,k,l;
-    i=ms(n+m);
-    j=ms(n);
-    k=ms(m);
-    l=j*k;
-    l=i/l;
+    l=1;
+    j=n+m;
+    for(i=m+1;i<=j;i++)
+        {
+        k=i-m;
+        l=l*i/k;
+    }
     return l%1000000007;
 }
  
